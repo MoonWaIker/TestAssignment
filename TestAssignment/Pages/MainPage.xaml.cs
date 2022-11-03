@@ -25,6 +25,24 @@ namespace TestAssignment
         public MainPage()
         {
             this.InitializeComponent();
+            myFrame.Navigate(typeof(Home));
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (main.IsSelected)
+                myFrame.Navigate(typeof(Home));
+            if (search.IsSelected)
+                myFrame.Navigate(typeof(SearchPage));
+            if (convert.IsSelected)
+            {
+                //myFrame.Navigate(typeof(settings));
+            }
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
         }
     }
 }
