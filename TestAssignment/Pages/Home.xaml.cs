@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TestAssignment.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -37,14 +38,18 @@ namespace TestAssignment
 
             if (n <= 0)
                 n = methodList.Count;
-            
+
             for (int i = 0; i < n; ++i)
-                cryptoCurrenciesList.Items.Add(methodList[i]);
+                cryptoCurrenciesList.Items.Add(new ListViewItem { Name = methodList[i], Content = methodList[i] });
         }
 
-        public void ItemClick(Object sender, RoutedEventArgs e)
+        private void SettingsHub_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CurrencyPage));
+            if (e.AddedItems.Count > 0)
+            {
+                CurrencyPage.SetCurrency((e.AddedItems[0] as ListViewItem).Name.ToString().ToLower());
+                this.Frame.Navigate(typeof(CurrencyPage));
+            }
         }
     }
 }

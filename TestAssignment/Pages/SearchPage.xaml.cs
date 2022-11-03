@@ -59,5 +59,14 @@ namespace TestAssignment
         {
             this.Frame.Navigate(typeof(CurrencyPage));
         }
+
+        private void SettingsHub_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                CurrencyPage.SetCurrency((e.AddedItems[0] as ListViewItem).Name.ToString().ToLower());
+                this.Frame.Navigate(typeof(CurrencyPage));
+            }
+        }
     }
 }

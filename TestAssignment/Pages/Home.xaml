@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView x:Name="cryptoCurrenciesList" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ItemClick">
+        <ListView x:Name="cryptoCurrenciesList" Grid.Row="1" IsItemClickEnabled="True" ReorderMode="Disabled"
+                    SelectionChanged="SettingsHub_SelectionChanged">
             <TextBlock FontWeight="Bold"  Text="Top cryptocurrencies" />
         </ListView>
     </Grid>

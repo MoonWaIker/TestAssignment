@@ -23,20 +23,27 @@ namespace TestAssignment.Pages
     /// </summary>
     public sealed partial class CurrencyPage : Page
     {
-        public string currency = "bitcoin";
+        public string currency;
+        public static string temp;
         public CurrencyPage()
         {
             this.InitializeComponent();
             Show().ConfigureAwait(false);
         }
 
+        public static void SetCurrency(string currency) 
+        {
+            temp = currency;
+        }
+
         public async Task Show()
         {
-            infoList.Items.Add(currency);
-            infoList.Items.Add(await CryptoCurrencies.GetPrice(currency));
-            infoList.Items.Add(await CryptoCurrencies.GetVolume(currency));
-            infoList.Items.Add(String.Join(", ", await CryptoCurrencies.GetChanges(currency)));
-            infoList.Items.Add(await CryptoCurrencies.GetMarket(currency));
+            currency = temp;
+            infoList.Items.Add("Currence: " + currency);
+            infoList.Items.Add("Price: " + await CryptoCurrencies.GetPrice(currency) + "$");
+            infoList.Items.Add("Volume: " + await CryptoCurrencies.GetVolume(currency) + "$");
+            infoList.Items.Add("Price changing: " + String.Join(", ", await CryptoCurrencies.GetChanges(currency)));
+            infoList.Items.Add("Market: " + await CryptoCurrencies.GetMarket(currency));
         }
     }
 }
