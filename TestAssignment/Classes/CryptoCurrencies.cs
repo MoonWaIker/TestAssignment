@@ -189,7 +189,7 @@ namespace TestAssignment
 
             {
 
-                var result = await coinGeckoClient.CoinsClient.GetCoinList();
+                var result = await coinGeckoClient.CoinsClient.GetCoinMarkets("usd");
 
                 List<string> list = new List<string>();
 

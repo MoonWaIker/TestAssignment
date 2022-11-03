@@ -15,12 +15,12 @@
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0" VerticalAlignment="Center">
             <Button x:Name="findButton" Content="Find"
-                RelativePanel.AlignRightWithPanel="True"/>
+                RelativePanel.AlignRightWithPanel="True" Click="OnClick"/>
             <TextBox x:Name="findBox"
                  RelativePanel.LeftOf="findButton"
                  RelativePanel.AlignLeftWithPanel="True"
         />
         </RelativePanel>
-        <ListBox x:Name="cryptoCurrenciesList" Grid.Row="1"/>
+        <ListView x:Name="cryptoCurrenciesList" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ItemClick"/>
     </Grid>
 </Page>
