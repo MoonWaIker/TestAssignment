@@ -35,7 +35,7 @@ namespace TestAssignment
             List<string> cryptoList = await CryptoCurrencies.GetList();
 
             foreach (string str in cryptoList)
-                cryptoCurrenciesList.Items.Add(str);
+                cryptoCurrenciesList.Items.Add(new ListViewItem { Name = str, Content = str });
         }
 
         public void OnClick(Object sender, RoutedEventArgs e) => Redo().ConfigureAwait(false);
@@ -46,18 +46,13 @@ namespace TestAssignment
             {
                 cryptoCurrenciesList.Items.Clear();
 
-                List<string> cryptoList = await CryptoCurrencies.GetList();
+                List<string> methodList = await CryptoCurrencies.GetList();
 
-                foreach (string str in cryptoList)
+                foreach (string str in methodList)
                     if (str.Contains(findBox.Text))
-                        cryptoCurrenciesList.Items.Add(str);
+                        cryptoCurrenciesList.Items.Add(new ListViewItem { Name = str, Content = str });
             }
             else await Show();
-        }
-
-        public void ItemClick(Object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CurrencyPage));
         }
 
         private void SettingsHub_SelectionChanged(object sender, SelectionChangedEventArgs e)
