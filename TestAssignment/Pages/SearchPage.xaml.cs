@@ -49,10 +49,10 @@ namespace TestAssignment
                 List<string> methodList = await CryptoCurrencies.GetList();
 
                 foreach (string str in methodList)
-                    if (str.Contains(findBox.Text))
+                    if (str.ToLower().Contains(findBox.Text.ToLower()))
                         cryptoCurrenciesList.Items.Add(new ListViewItem { Name = str, Content = str });
             }
-            else await Show();
+            else await Show().ConfigureAwait(false);
         }
 
         private void SettingsHub_SelectionChanged(object sender, SelectionChangedEventArgs e)
