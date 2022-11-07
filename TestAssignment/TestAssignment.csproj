@@ -120,6 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\CryptoCurrencies.cs" />
+    <Compile Include="Pages\Convertor.xaml.cs">
+      <DependentUpon>Convertor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CurrencyPage.xaml.cs">
       <DependentUpon>CurrencyPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\Convertor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CurrencyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

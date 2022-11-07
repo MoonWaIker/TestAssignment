@@ -12,7 +12,6 @@ namespace TestAssignment
     internal class CryptoCurrencies
     {
         // Return the price of an ids
-
         public static async Task<decimal?> GetPrice(string ids)
 
         {
@@ -165,13 +164,11 @@ namespace TestAssignment
 
 
 
-        // Get list of all currencies
+        // Calculate exchange rates of ids
 
-        public static async Task<List<string>> GetList()
+        public static async Task<decimal?> CalculateRates(string ids1, string ids2, decimal value)
 
         {
-
-            // Initialization...
 
             HttpClient httpClient = new HttpClient();
 
@@ -183,21 +180,11 @@ namespace TestAssignment
 
             CoinGeckoClient coinGeckoClient = new CoinGeckoClient();
 
-
-
             if ((await pingClient.GetPingAsync()).GeckoSays != string.Empty)
 
             {
 
-                var result = await coinGeckoClient.CoinsClient.GetCoinMarkets("usd");
-
-                List<string> list = new List<string>();
-
-                for (int i = 0; i < result.Count; i++)
-
-                    list.Add(result[i].Name);
-
-                return list;
+                return await GetPrice(ids1) / await GetPrice(ids2) * value;
 
             }
 

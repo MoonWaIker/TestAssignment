@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestAssignment.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -36,7 +37,7 @@ namespace TestAssignment
                 myFrame.Navigate(typeof(SearchPage));
             if (convert.IsSelected)
             {
-                //myFrame.Navigate(typeof(settings));
+                myFrame.Navigate(typeof(Convertor));
             }
         }
 

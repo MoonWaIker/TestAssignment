@@ -32,7 +32,7 @@ namespace TestAssignment
 
         public async Task Show() 
         {
-            List<string> cryptoList = await CryptoCurrencies.GetList();
+            List<string> cryptoList = await CryptoCurrencies.GetTop();
 
             foreach (string str in cryptoList)
                 cryptoCurrenciesList.Items.Add(new ListViewItem { Name = str, Content = str });
@@ -46,7 +46,7 @@ namespace TestAssignment
             {
                 cryptoCurrenciesList.Items.Clear();
 
-                List<string> methodList = await CryptoCurrencies.GetList();
+                List<string> methodList = await CryptoCurrencies.GetTop();
 
                 foreach (string str in methodList)
                     if (str.ToLower().Contains(findBox.Text.ToLower()))
