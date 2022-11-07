@@ -44,7 +44,7 @@ namespace TestAssignment.Pages
         
         public async Task AddToHistory()
         {
-            historyOfCalculating.Items.Add(await CryptoCurrencies.CalculateRates(Combo1.SelectionBoxItem.ToString().ToLower(), Combo2.SelectionBoxItem.ToString().ToLower(), Convert.ToInt32(convertBox.Text)));
+            historyOfCalculating.Items.Add(await CryptoCurrencies.CalculateRates(Combo1.SelectionBoxItem.ToString().ToLower(), Combo2.SelectionBoxItem.ToString().ToLower(), Convert.ToDecimal(convertBox.Text)));
         }
     }
 }
