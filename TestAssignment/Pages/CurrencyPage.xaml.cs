@@ -42,8 +42,15 @@ namespace TestAssignment.Pages
             infoList.Items.Add("Currence: " + currency);
             infoList.Items.Add("Price: " + await CryptoCurrencies.GetPrice(currency) + "$");
             infoList.Items.Add("Volume: " + await CryptoCurrencies.GetVolume(currency) + "$");
-            infoList.Items.Add("Price changing: " + String.Join(", ", await CryptoCurrencies.GetChanges(currency)));
             infoList.Items.Add("Market: " + await CryptoCurrencies.GetMarket(currency));
+            List<decimal?> list = await CryptoCurrencies.GetChanges(currency);
+            changeList.Items.Add("1 Hour: " + list[0] + "%");
+            changeList.Items.Add("1 Day: " + list[1] + "%");
+            changeList.Items.Add("1 Week: " + list[2] + "%");
+            changeList.Items.Add("2 Weeks: " + list[3] + "%");
+            changeList.Items.Add("1 Month: " + list[4] + "%");
+            changeList.Items.Add("200 Days: " + list[5] + "%");
+            changeList.Items.Add("1 Year: " + list[6] + "%");
         }
     }
 }

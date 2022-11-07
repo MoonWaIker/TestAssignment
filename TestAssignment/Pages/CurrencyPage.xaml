@@ -9,8 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="Void">
-        <ListView x:Name="infoList" Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="infoList" Grid.Row="0">
             <TextBlock FontWeight="Bold"  Text="Info" />
+        </ListView>
+        <ListView x:Name="changeList" Grid.Row="1">
+            <TextBlock FontWeight="Bold"  Text="Changes" />
         </ListView>
     </Grid>
 </Page>
